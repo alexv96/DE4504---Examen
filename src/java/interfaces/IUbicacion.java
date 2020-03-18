@@ -5,6 +5,7 @@
  */
 package interfaces;
 
+import modelo.Carretera;
 import modelo.Ubicacion;
 
 /**
@@ -13,5 +14,5 @@ import modelo.Ubicacion;
  */
 public interface IUbicacion {
     
-    public Ubicacion getUbicacion(int id);
+    public Carretera getUbicacion(int id);
 }

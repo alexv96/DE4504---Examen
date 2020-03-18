@@ -40,8 +40,6 @@ public class Carretera {
     public void setUbicacion(int ubicacion) {
         this.ubicacion = ubicacion;
     }
-    
-    
 
     public int getIdCarretera() {
         return idCarretera;
@@ -73,6 +71,11 @@ public class Carretera {
 
     public void setUbicacionID(Ubicacion ubicacionID) {
         this.ubicacionID = ubicacionID;
+    }
+
+    @Override
+    public String toString() {
+        return "Carretera{" + "idCarretera=" + idCarretera + ", nombre=" + nombre + ", valor=" + valor + ", ubicacion=" + ubicacion + ", ubicacionID=" + ubicacionID + '}';
     }
     
     

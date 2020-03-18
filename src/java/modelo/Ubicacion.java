@@ -23,6 +23,13 @@ public class Ubicacion {
         this.longitud = longitud;
     }
 
+    public Ubicacion(String latitud, String longitud) {
+        this.latitud = latitud;
+        this.longitud = longitud;
+    }
+    
+    
+
     public int getIdUbicacion() {
         return idUbicacion;
     }
@@ -45,6 +52,11 @@ public class Ubicacion {
 
     public void setLongitud(String longitud) {
         this.longitud = longitud;
+    }
+
+    @Override
+    public String toString() {
+        return "Ubicacion{" + "idUbicacion=" + idUbicacion + ", latitud=" + latitud + ", longitud=" + longitud + '}';
     }
     
     

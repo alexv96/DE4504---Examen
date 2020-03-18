@@ -17,7 +17,7 @@
       </li>
     </ul>
       <div class="inline my-2 y-lg0">
-          <a id="a" href="ubicacion">Ver Carreteras</a>
+          <a id="a" href="Ubicacion?accion=ubicacion">Ver Carreteras</a>
       </div>
     </div>
 </nav>

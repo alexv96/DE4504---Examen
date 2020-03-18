@@ -82,7 +82,6 @@
                             </c:forEach>
                         </div>
                     </div>
-
             
             <table class="table table-stripped">
                 <thead>

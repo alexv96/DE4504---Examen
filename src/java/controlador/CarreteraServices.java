@@ -30,5 +30,7 @@ public class CarreteraServices {
     public Carretera obtenerCarreteraID(int id){
         return carreteraDAO.getCarreteraByID(id);
     }
+
+    
     
 }
