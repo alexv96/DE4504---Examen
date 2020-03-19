@@ -4,10 +4,18 @@
 .mapa{
     height: 500px;
 }
-.formato:before{
-    content:'';
+.titulo{
+    border-bottom:solid 1px #212529;
+    width:70%;
+    height:50px;
 }
-
-.formato:before{
+.formato{
+    content: '';
+}
+.formato::before{
     content:'$';
+}
+.fab.fa-whatsapp{
+    color: green;
+    font-size: 1.5rem;
 }

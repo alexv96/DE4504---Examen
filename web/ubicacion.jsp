@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="public/css/bootstrap.min.css"/>
         <link href="public/css/estilos.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+        <link href="public/css/whatsapp.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <jsp:include page="header/menu.jsp"></jsp:include>
@@ -36,7 +37,7 @@
             <div id="mapa" class="mapa"></div>
 
             <div id="precios">
-                <h3><strong>Precio:</strong> <span class="formato">${ubicacion.getValor()}</span></h3>
+                <h3><strong>Precio:</strong> <span class="formato" id="valor">${ubicacion.getValor()}</span></h3>
                     <div class="ocultar" style="display: none;">
                         <input type="hidden" value="${ubicacion.getNombre()}" id="data1"/>
                         <input type="hidden" value="${ubicacion.getUbicacionID().getLatitud()}" id="data2"/>

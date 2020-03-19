@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="public/css/estilos.css"/>
         <link rel="stylesheet" href="public/css/bootstrap.min.css"/>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+        <link href="public/css/whatsapp.css" rel="stylesheet" type="text/css"/>
 
     </head>
     <body>
@@ -108,112 +109,8 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-        <script>
-            $(document).change(function () {
-                var id = document.getElementById("lineas").value;
-                console.log(id);
-                $("div #obtener").click(function () {
-                    console.log(id);
-                    if (id != null) {
-                        agregarACarro(id);
-                    } else {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Oops...',
-                            text: 'Ha sucedido un error!',
-                        })
-                    }
-
-
-                });
-                function agregarACarro(id) {
-                    console.log('ingreso');
-                    var url = "Controlador?accion=agregarCarro";
-                    $.ajax({
-                        type: 'POST',
-                        url: url,
-                        data: "lineas=" + id,
-                        success: function (data, textStatus, jqXHR) {
-                            location.href="Controlador?accion=home";
-                        },
-                        error: function (jqXHR, textStatus, errorThrown) {
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Oops...',
-                                text: 'Ha sucedido un error!',
-                            })
-                        }
-                    })
-                }
-            });
-            
-            $(document).ready(function (){
-               //Obtener atributo para eliminar.
-               $("tr #btnDelete").click(function(){
-                   var idCarro = $(this).parent().find("#idPista").val();
-                   
-                   //Mensajes
-                   Swal.fire({
-                       title: '¿Estas seguro que deseas eliminar del carro?',
-                       text: 'Puedes volver a agregar en cualquier momento',
-                       icon: 'warning',
-                       showCancelButton: true,
-                       confirmButtonColor: '#28a745',
-                       cancelButtonColor: '#d33',
-                       confirmButtonText: 'Eliminar',
-                       cancelButtonText: 'Cancelar'
-                   }).then((result) => {
-                       if(result.value){
-                            eliminar(idCarro);
-                            Swal.fire({
-                                icon: 'success',
-                                title: 'Eliminado exitosamente'
-                            }) .then((result) => {
-                               if(result.value){
-                                   parent.location.href = "Controlador?accion=home";
-                               } 
-                            });
-                       }else{
-                           Swal.fire({
-                               icon: 'error',
-                               title: 'Error al eliminar del carro'
-                           });
-                       }
-                   })
-               });
-               
-               function eliminar(idCarro){
-                   var url = "Controlador?accion=eliminar";
-                   console.log(idCarro);
-                   $.ajax({
-                       type: 'POST',
-                       url: url,
-                       data: "idPista="+ idCarro,
-                       success: function (data, textStatus, jqXHR) {
-                           console.log('elimino');
-                        }
-                   })
-               }
-               
-               $("tr #cantidad").blur(function(){
-                   var idCarretera = $(this).parent().find("#idCarretera").val();
-                   var cantidad = $(this).parent().find("#cantidad").val();
-                   var url = "Controlador?accion=actualizarCantidad";
-                   
-                   $.ajax({
-                       type: 'POST',
-                       url: url,
-                       data: "idCarretera="+idCarretera +"&cantidad="+cantidad,
-                       success: function (data, textStatus, jqXHR) {
-                           location.href = "Controlador?accion=home";
-                        }
-                   })
-               });
-            });
-
-
-        </script>
-
+        <script src="public/js/funciones.js" type="text/javascript"></script>
+        
 
     </body>
 </html>

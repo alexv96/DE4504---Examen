@@ -13,7 +13,7 @@
         <a class="nav-link" href="#">Ver Pedidos</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Ayuda</a>
+        <a class="nav-link" href="ayuda.jsp">Ayuda</a>
       </li>
     </ul>
       <div class="inline my-2 y-lg0">
@@ -21,3 +21,7 @@
       </div>
     </div>
 </nav>
+
+<!-- API WHATSAPP-->
+        <a href="https://wa.me/56942940824" target="_blank"><div class="plus-button"></div></a>
+        <!-- FIN API WHATSAPP -->

@@ -1,12 +1,111 @@
 //==================================
 //        Carrito
 //==================================
+            $(document).change(function () {
+                var id = document.getElementById("lineas").value;
+                console.log(id);
+                $("div #obtener").click(function () {
+                    console.log(id);
+                    if (id != null) {
+                        agregarACarro(id);
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Ha sucedido un error!',
+                        })
+                    }
+                });
+                function agregarACarro(id) {
+                    console.log('ingreso');
+                    var url = "Controlador?accion=agregarCarro";
+                    $.ajax({
+                        type: 'POST',
+                        url: url,
+                        data: "lineas=" + id,
+                        success: function (data, textStatus, jqXHR) {
+                            location.href="Controlador?accion=home";
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Ha sucedido un error!',
+                            })
+                        }
+                    })
+                }
+            });
+            
+            $(document).ready(function (){
+               //Obtener atributo para eliminar.
+               $("tr #btnDelete").click(function(){
+                   var idCarro = $(this).parent().find("#idPista").val();
+                   
+                   //Mensajes
+                   Swal.fire({
+                       title: '¿Estas seguro que deseas eliminar del carro?',
+                       text: 'Puedes volver a agregar en cualquier momento',
+                       icon: 'warning',
+                       showCancelButton: true,
+                       confirmButtonColor: '#28a745',
+                       cancelButtonColor: '#d33',
+                       confirmButtonText: 'Eliminar',
+                       cancelButtonText: 'Cancelar'
+                   }).then((result) => {
+                       if(result.value){
+                            eliminar(idCarro);
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Eliminado exitosamente'
+                            }) .then((result) => {
+                               if(result.value){
+                                   parent.location.href = "Controlador?accion=home";
+                               } 
+                            });
+                       }else{
+                           Swal.fire({
+                               icon: 'error',
+                               title: 'Error al eliminar del carro'
+                           });
+                       }
+                   })
+               });
+               
+               function eliminar(idCarro){
+                   var url = "Controlador?accion=eliminar";
+                   console.log(idCarro);
+                   $.ajax({
+                       type: 'POST',
+                       url: url,
+                       data: "idPista="+ idCarro,
+                       success: function (data, textStatus, jqXHR) {
+                           console.log('elimino');
+                        }
+                   })
+               }
+               
+               $("tr #cantidad").blur(function(){
+                   var idCarretera = $(this).parent().find("#idCarretera").val();
+                   var cantidad = $(this).parent().find("#cantidad").val();
+                   var url = "Controlador?accion=actualizarCantidad";
+                   
+                   $.ajax({
+                       type: 'POST',
+                       url: url,
+                       data: "idCarretera="+idCarretera +"&cantidad="+cantidad,
+                       success: function (data, textStatus, jqXHR) {
+                           location.href = "Controlador?accion=home";
+                        }
+                   })
+               });
+            });
+
 
 
 //==================================
 //        ubicacion
 //==================================
-
 $(document).change(function () {
                 var id = document.getElementById("lineas").value;
                 console.log(valor);
